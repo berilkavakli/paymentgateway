@@ -142,13 +142,13 @@ http://localhost:5001/
 
   
 
-For endpoint calls; 'securekey' value could be used as APIKEY header.
+For endpoint calls; 'securekey' value could be used as ApiKey header.
 
   
 
 ### 4. Accessing Service Logs
 
-The payment gateway service was configured to use console log sink for ease of use, so the service logs could be monitored via docker container logs.
+The payment gateway service was configured to use console log sink for ease of use, so the service logs could be monitored via docker container logs. For logging nlog is implemented.
 
   
 
@@ -166,17 +166,7 @@ The project includes unit tests about various functionalities. To run unit tests
 https://dotnet.microsoft.com/download/dotnet/3.1
 
   
-Unit tests are written for methods in PaymentController and PaymentService. For simulating other layers of method, Moq framework is used in the project.
-Some of the tests needs PostgreSQL thus PaymentConnectionString property in app.settings should be modified accordingly.
-
-  
-
-```shell
-"ConnectionStrings": {
-"PaymentConnectionString": "Server=db;Port=5432;Database=PAYMENTGATEWAY;User Id=postgres;Password=...;"
-},
-
-```
+Unit tests are written for methods in PaymentController and PaymentService. For simulating other layers, Moq framework is used in the project.
 
   
 
@@ -200,11 +190,11 @@ To run unit tests;
 
 ## Other Constraints & Assumptions
 
-- The API-KEY value for payment gateway endpoints is static ('securekey') however for actual production usage; the consumers of the payment gateway should register themselves, get unique API-KEYs and use them for payment gateway communication.
+- The ApiKey value for payment gateway endpoints is static ('securekey') however for actual production usage; the consumers of the payment gateway should register themselves, get unique API-KEYs and use them for payment gateway communication.
 
   
 
-- Credit card format validation is performed by using FluentValidation frameworks. However to ease system tests, the credit card format validation was disabled (Line: xx in .cs)
+- Credit card format validation is performed by using FluentValidation frameworks. However to ease system tests, the credit card format validation was disabled (Line: 16 in CardValidator.cs)
 
 ## Potential Improvements
 
@@ -212,11 +202,11 @@ The scope of the project was kept limited due to time constraints, so there are 
 
   
 
-- Sensitive values such as connection strings, usernames, passwords, API-KEYs are currently being kept in app.settings config file. However, for production usage, they should be store as *secrets* (for Docker Swarm and Kubernetes).
+- Sensitive values such as connection strings, usernames, passwords, ApiKeys are currently being kept in app.settings config file. However, for production usage, they should be store as *secrets* (for Docker Swarm and Kubernetes).
 
   
 
-- Some of the unit tests need a database, thus they use PostgreSQL. This behavior could be avoided by adopting a Mock DB framework for unit tests.
+- Unit test count might be improved and also can be added integration tests.
 
   
 
