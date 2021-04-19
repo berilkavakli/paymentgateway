@@ -215,3 +215,4 @@ The scope of the project was kept limited due to time constraints, so there are 
   
 
 - For better error troubleshooting; the 3rd party log data collectors such as Logstash (ELK) or FluentD could be integrated with the system.
+- Database and tables are created in the startup.cs by reading TableScripts.sql. Intead of this a data migration tool like FluentMigration can be used.
