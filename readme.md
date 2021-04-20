@@ -6,7 +6,7 @@
 
   
 
-This project includes a .net core 3.1 based cross-platform payment gateway service which imitates checkout.com payment system. It exposes */api/payment* and */api/payment/{paymentId}* endpoints for issuing and viewing payment operations respectively. When a new request received by */api/payment* endpoint, the following operations are performed successively:
+This project includes a .net core 3.1 based cross-platform payment gateway service which imitates payment system. It exposes */api/payment* and */api/payment/{paymentId}* endpoints for issuing and viewing payment operations respectively. When a new request received by */api/payment* endpoint, the following operations are performed successively:
 
   
 
