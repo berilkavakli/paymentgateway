@@ -136,15 +136,11 @@ http://localhost:7777/
 
   
 
-PaymentGateway Service Swagger UI (If it runs on locally (via Kestrel)):
-
-http://localhost:5001/
-
   
 
 For endpoint calls; 'securekey' value could be used as ApiKey header.
 
-* Also sample postman collection is added.
+Also sample postman collection is added.
 
   
 
