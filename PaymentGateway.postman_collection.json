@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "c0e5ab03-c9fb-4034-94ab-eeb072fece86",
+		"name": "PaymentGateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DoPayment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "securekey",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n      \"CardInformation\": {\r\n          \"CardNumber\": \"2222222233334444\",\r\n          \"ExpiryMonth\": 12,\r\n          \"ExpiryYear\": 2023,\r\n          \"Cvv\": 213\r\n      },\r\n      \"Amount\": 10,\r\n      \"Currency\": \"EUR\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/api/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"api",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPayment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "securekey",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n      \"CardInformation\": {\r\n          \"CardNumber\": \"1111222233334444\",\r\n          \"ExpiryMonth\": 5,\r\n          \"ExpiryYear\": 2021,\r\n          \"Cvv\": \"343\"\r\n      },\r\n      \"Amount\": 10,\r\n      \"Currency\": \"eu\"\r\n  }\r\n  \r\n  public CardInformation CardInformation { get; set; }        \r\n        public double Amount { get; set; }\r\n        //Enum yapılabilir.\r\n        public string Currency { get; set; }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/api/payment/bbec0c64-e119-44a1-af3e-6dd08b2fb6ce",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"api",
+						"payment",
+						"bbec0c64-e119-44a1-af3e-6dd08b2fb6ce"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
