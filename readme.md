@@ -86,7 +86,7 @@ The docker images of the PaymentGateway, BankServiceA and BankServiceB can be bu
 You may use build script:
 
 ```shell
-> ./build.cmd
+> build.cmd
 ```
 
 
