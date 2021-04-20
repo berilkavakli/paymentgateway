@@ -144,6 +144,8 @@ http://localhost:5001/
 
 For endpoint calls; 'securekey' value could be used as ApiKey header.
 
+* Also sample postman collection is added.
+
   
 
 ### 4. Accessing Service Logs
